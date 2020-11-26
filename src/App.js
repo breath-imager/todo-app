@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import CreateTodo from "./components/create-todo.component";
 import EditTodo from "./components/edit-todo.component";
 import TodosList from "./components/todos-list.component";
+import DeleteTodo from "./components/delete-todo.component"
 
 import logo from "./logo.svg";
 
@@ -16,7 +17,7 @@ function App () {
           <a className="navbar-brand" href="https://nautiluss.com" target="_blank">
             <img src={logo} width="30" height="30" alt="nautiluss.com" />
           </a>
-          <Link to="/" className="navbar-brand">MERN-Stack Todo App</Link>
+          <Link to="/" className="navbar-brand">MERN-Stack Todo</Link>
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav mr-auto">
               <li className="navbar-item">
@@ -32,6 +33,7 @@ function App () {
         <Route path="/" exact component={TodosList} />
         <Route path="/edit/:id" component={EditTodo} />
         <Route path="/create" component={CreateTodo} />
+        <Route path="/delete/:id" component={DeleteTodo} />
       </div>
     </Router>      
   )

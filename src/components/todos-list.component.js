@@ -8,8 +8,9 @@ const Todo = props => (
         <td className={props.todo.todoCompleted ? 'completed' : ''}>{props.todo.todoResponsible}</td>
         <td className={props.todo.todoCompleted ? 'completed' : ''}>{props.todo.todoPriority}</td>
         <td>
-            <Link to={"/edit/"+props.todo._id}>Edit</Link>
+            <Link to={"/edit/"+props.todo._id}>Edit</Link> / <Link to={"/delete/"+props.todo._id}>Delete</Link>
         </td>
+       
 
     </tr>
 )
@@ -29,11 +30,9 @@ export default function TodosList () {
             await axios.get('http://localhost:4000/todos/')
                 .then(response => {
                     // assign response.data to the todos propertty of the component's state object
-                    
                     setTodos(response.data)
                 })
                 .catch(function (error){
-                    alert('here')
                     console.log(error)
                 })
         }
@@ -50,6 +49,7 @@ export default function TodosList () {
                         <th>Responsible</th>
                         <th>Priority</th>
                         <th>Action</th>
+                        
                     </tr>
                 </thead>
                 <tbody>

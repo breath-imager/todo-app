@@ -60,7 +60,7 @@ export default function EditTodo () {
                 })
         }
         init()
-    })
+    }, [])
 
     return (
         <div>

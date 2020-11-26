@@ -1,11 +1,14 @@
 import React, {Component, useState } from 'react'
 import axios from 'axios'
+import { useHistory } from 'react-router-dom'
 
 export default function CreateTodo () {
     const [todoDescription, setTodoDescription] = React.useState('')
     const [todoResponsible, setTodoResponsible] = React.useState('')
     const [todoPriority, setTodoPriority] = React.useState('')
     const [todoCompleted, setTodoCompleted] = React.useState(false)
+
+    let history  = useHistory()
 
     const onChangeTodoDescription = event => {
         console.log(event)
@@ -32,7 +35,8 @@ export default function CreateTodo () {
             todoDescription : todoDescription,
             todoResponsible :todoResponsible,
             todoPriority : todoPriority,
-            todoCompleted : todoCompleted
+            todoCompleted : todoCompleted,
+            todoDate : new Date()
         }
 
         // send an HTTP POST request to the back-end endpoint
@@ -44,6 +48,8 @@ export default function CreateTodo () {
         setTodoResponsible('')
         setTodoPriority('')
         setTodoCompleted(false)
+
+        history.push('/')
     
         
     }
